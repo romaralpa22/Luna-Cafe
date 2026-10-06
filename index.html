@@ -1,1 +1,675 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
+    <title>Luna Café | Coffee & Good Moments</title>
+
+    <meta
+        name="description"
+        content="Luna Café — good coffee, good food, and good moments."
+    >
+
+    <style>
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            font-family: Arial, sans-serif;
+            color: #3b2921;
+            background: #f8f3ec;
+            line-height: 1.6;
+        }
+
+        a {
+            color: inherit;
+            text-decoration: none;
+        }
+
+        /* NAVIGATION */
+        nav {
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+            background: #fffaf4;
+            border-bottom: 1px solid #dfd2c3;
+            padding: 18px 6%;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            font-size: 24px;
+            font-weight: bold;
+            letter-spacing: 3px;
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 28px;
+            align-items: center;
+        }
+
+        .nav-links a {
+            font-size: 14px;
+        }
+
+        .nav-button {
+            border: 1px solid #7a513d;
+            padding: 10px 20px;
+            border-radius: 30px;
+        }
+
+        /* HERO */
+        .hero {
+            min-height: 85vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            padding: 80px 6%;
+            background:
+                linear-gradient(
+                    rgba(76, 48, 36, 0.55),
+                    rgba(76, 48, 36, 0.55)
+                ),
+                url("https://images.unsplash.com/photo-1495474472287-4d71bcdd2085?auto=format&fit=crop&w=1800&q=80")
+                center/cover;
+            color: white;
+        }
+
+        .hero-content {
+            max-width: 800px;
+        }
+
+        .eyebrow {
+            text-transform: uppercase;
+            letter-spacing: 5px;
+            font-size: 13px;
+            margin-bottom: 25px;
+        }
+
+        .hero h1 {
+            font-family: Georgia, serif;
+            font-size: clamp(55px, 9vw, 110px);
+            font-weight: normal;
+            line-height: 0.95;
+            margin-bottom: 30px;
+        }
+
+        .hero p {
+            font-size: 20px;
+            max-width: 600px;
+            margin: 0 auto 35px;
+        }
+
+        .button {
+            display: inline-block;
+            background: #f1dfbd;
+            color: #4d3327;
+            padding: 15px 32px;
+            border-radius: 40px;
+            font-weight: bold;
+        }
+
+        /* GENERAL */
+        section {
+            padding: 100px 6%;
+        }
+
+        .section-label {
+            text-transform: uppercase;
+            letter-spacing: 5px;
+            color: #8a603d;
+            font-size: 13px;
+            margin-bottom: 20px;
+        }
+
+        h2 {
+            font-family: Georgia, serif;
+            font-size: clamp(42px, 6vw, 75px);
+            font-weight: normal;
+            line-height: 1.05;
+            margin-bottom: 30px;
+        }
+
+        .intro {
+            max-width: 700px;
+            font-size: 20px;
+            color: #6d5a50;
+        }
+
+        /* ABOUT */
+        .about {
+            background: #efe0c3;
+        }
+
+        .about-grid {
+            max-width: 1100px;
+            margin: auto;
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 60px;
+            align-items: center;
+        }
+
+        .about-image {
+            min-height: 500px;
+            border-radius: 4px;
+            background:
+                url("https://images.unsplash.com/photo-1501339847302-ac426a4a7cbb?auto=format&fit=crop&w=1200&q=80")
+                center/cover;
+        }
+
+        /* MENU */
+        .menu {
+            max-width: 1100px;
+            margin: auto;
+        }
+
+        .menu-intro {
+            max-width: 650px;
+            margin-bottom: 55px;
+        }
+
+        .menu-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 25px;
+        }
+
+        .menu-card {
+            background: #fffaf4;
+            border: 1px solid #e1d6ca;
+            padding: 35px;
+            transition: transform 0.25s ease;
+        }
+
+        .menu-card:hover {
+            transform: translateY(-5px);
+        }
+
+        .menu-card h3 {
+            font-family: Georgia, serif;
+            font-size: 30px;
+            font-weight: normal;
+            margin-bottom: 12px;
+        }
+
+        .menu-card p {
+            color: #6d5a50;
+            margin-bottom: 20px;
+        }
+
+        .price {
+            font-weight: bold;
+            color: #8a603d;
+        }
+
+        /* EXPERIENCE */
+        .experience {
+            background: #6f4b3b;
+            color: #fff5e5;
+        }
+
+        .experience-inner {
+            max-width: 900px;
+            margin: auto;
+            text-align: center;
+        }
+
+        .experience h2 {
+            color: #fff0cf;
+        }
+
+        .experience p {
+            font-size: 21px;
+            max-width: 700px;
+            margin: auto;
+            color: #f8eee2;
+        }
+
+        /* VISIT */
+        .visit {
+            max-width: 1000px;
+            margin: auto;
+        }
+
+        .visit-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 25px;
+            margin-top: 50px;
+        }
+
+        .visit-card {
+            background: white;
+            padding: 35px;
+            border-left: 4px solid #8a603d;
+        }
+
+        .visit-card h3 {
+            font-family: Georgia, serif;
+            font-size: 28px;
+            font-weight: normal;
+            margin-bottom: 10px;
+        }
+
+        .visit-card p {
+            color: #6d5a50;
+        }
+
+        /* CTA */
+        .cta {
+            background: #efe0c3;
+            text-align: center;
+        }
+
+        .cta p {
+            max-width: 600px;
+            margin: 0 auto 30px;
+            font-size: 20px;
+            color: #6d5a50;
+        }
+
+        /* FOOTER */
+        footer {
+            background: #2f211b;
+            color: #f6ead7;
+            text-align: center;
+            padding: 55px 6%;
+        }
+
+        footer .footer-logo {
+            font-family: Georgia, serif;
+            font-size: 34px;
+            letter-spacing: 4px;
+            margin-bottom: 15px;
+        }
+
+        footer p {
+            color: #d7c7b7;
+        }
+
+        /* MOBILE */
+        @media (max-width: 768px) {
+
+            nav {
+                padding: 16px 5%;
+            }
+
+            .nav-links {
+                gap: 12px;
+            }
+
+            .nav-links a:not(.nav-button) {
+                display: none;
+            }
+
+            .hero {
+                min-height: 80vh;
+                padding: 70px 7%;
+            }
+
+            .hero h1 {
+                font-size: 60px;
+            }
+
+            .hero p {
+                font-size: 17px;
+            }
+
+            section {
+                padding: 75px 7%;
+            }
+
+            .about-grid,
+            .visit-grid,
+            .menu-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .about-image {
+                min-height: 350px;
+                order: -1;
+            }
+
+            h2 {
+                font-size: 48px;
+            }
+
+            .menu-card {
+                padding: 30px;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+    <!-- NAVIGATION -->
+    <nav>
+        <a href="#home" class="logo">LUNA CAFÉ</a>
+
+        <div class="nav-links">
+            <a href="#about">About</a>
+            <a href="#menu">Menu</a>
+            <a href="#experience">Experience</a>
+            <a href="#visit">Visit</a>
+            <a href="#visit" class="nav-button">Order</a>
+        </div>
+    </nav>
+
+
+    <!-- HERO -->
+    <header class="hero" id="home">
+        <div class="hero-content">
+
+            <div class="eyebrow">
+                Coffee • Food • Good Moments
+            </div>
+
+            <h1>
+                Your everyday<br>
+                coffee place.
+            </h1>
+
+            <p>
+                Thoughtfully brewed coffee, comforting food,
+                and a warm space to slow down and stay awhile.
+            </p>
+
+            <a href="#menu" class="button">
+                Explore Our Menu
+            </a>
+
+        </div>
+    </header>
+
+
+    <!-- ABOUT -->
+    <section class="about" id="about">
+
+        <div class="about-grid">
+
+            <div class="about-image"></div>
+
+            <div>
+                <div class="section-label">
+                    About Luna
+                </div>
+
+                <h2>
+                    Coffee made<br>
+                    for connection.
+                </h2>
+
+                <p class="intro">
+                    Luna Café is a neighborhood coffee shop created
+                    for slow mornings, meaningful conversations,
+                    creative afternoons, and little moments worth
+                    remembering.
+                </p>
+
+                <br>
+
+                <p class="intro">
+                    Whether you're meeting a friend, getting some
+                    work done, or simply enjoying a quiet cup of
+                    coffee, there's always a place for you here.
+                </p>
+            </div>
+
+        </div>
+
+    </section>
+
+
+    <!-- MENU -->
+    <section id="menu">
+
+        <div class="menu">
+
+            <div class="menu-intro">
+
+                <div class="section-label">
+                    Our Favorites
+                </div>
+
+                <h2>
+                    Something for<br>
+                    every mood.
+                </h2>
+
+                <p class="intro">
+                    From your first coffee of the morning to an
+                    afternoon treat, discover some of our favorites.
+                </p>
+
+            </div>
+
+
+            <div class="menu-grid">
+
+                <div class="menu-card">
+                    <h3>Latte</h3>
+                    <p>
+                        Smooth espresso with silky steamed milk.
+                    </p>
+                    <div class="price">
+                        ₱160
+                    </div>
+                </div>
+
+
+                <div class="menu-card">
+                    <h3>Spanish Latte</h3>
+                    <p>
+                        Rich espresso balanced with sweet,
+                        creamy milk.
+                    </p>
+                    <div class="price">
+                        ₱180
+                    </div>
+                </div>
+
+
+                <div class="menu-card">
+                    <h3>Cold Brew</h3>
+                    <p>
+                        Slow-steeped coffee served smooth and refreshing.
+                    </p>
+                    <div class="price">
+                        ₱170
+                    </div>
+                </div>
+
+
+                <div class="menu-card">
+                    <h3>Croissant</h3>
+                    <p>
+                        Buttery, flaky, and freshly baked.
+                    </p>
+                    <div class="price">
+                        ₱120
+                    </div>
+                </div>
+
+
+                <div class="menu-card">
+                    <h3>Basque Cheesecake</h3>
+                    <p>
+                        Creamy cheesecake with a beautifully
+                        caramelized top.
+                    </p>
+                    <div class="price">
+                        ₱190
+                    </div>
+                </div>
+
+
+                <div class="menu-card">
+                    <h3>Chocolate Cake</h3>
+                    <p>
+                        Rich chocolate cake for your sweet moments.
+                    </p>
+                    <div class="price">
+                        ₱180
+                    </div>
+                </div>
+
+            </div>
+
+        </div>
+
+    </section>
+
+
+    <!-- EXPERIENCE -->
+    <section class="experience" id="experience">
+
+        <div class="experience-inner">
+
+            <div class="section-label">
+                The Luna Experience
+            </div>
+
+            <h2>
+                Stay for the coffee.<br>
+                Come back for the feeling.
+            </h2>
+
+            <p>
+                We believe a café should be more than a place
+                to grab a drink. It should be a place where
+                conversations happen, ideas begin, friendships
+                grow, and ordinary days become memorable.
+            </p>
+
+        </div>
+
+    </section>
+
+
+    <!-- VISIT -->
+    <section id="visit">
+
+        <div class="visit">
+
+            <div class="section-label">
+                Find Us
+            </div>
+
+            <h2>
+                Come say hello.
+            </h2>
+
+            <p class="intro">
+                We'd love to have you at Luna Café.
+                Drop by, grab your favorite drink, and make
+                yourself comfortable.
+            </p>
+
+
+            <div class="visit-grid">
+
+                <div class="visit-card">
+                    <h3>Location</h3>
+
+                    <p>
+                        123 Moonlight Street<br>
+                        Makati City, Philippines
+                    </p>
+                </div>
+
+
+                <div class="visit-card">
+                    <h3>Opening Hours</h3>
+
+                    <p>
+                        Monday – Friday: 7:00 AM – 9:00 PM<br>
+                        Saturday – Sunday: 8:00 AM – 10:00 PM
+                    </p>
+                </div>
+
+
+                <div class="visit-card">
+                    <h3>Contact</h3>
+
+                    <p>
+                        hello@lunacafe.ph<br>
+                        +63 912 345 6789
+                    </p>
+                </div>
+
+
+                <div class="visit-card">
+                    <h3>Follow Us</h3>
+
+                    <p>
+                        Instagram: @lunacafe.ph<br>
+                        Facebook: Luna Café
+                    </p>
+                </div>
+
+            </div>
+
+        </div>
+
+    </section>
+
+
+    <!-- CTA -->
+    <section class="cta">
+
+        <div class="section-label">
+            Your Table Awaits
+        </div>
+
+        <h2>
+            Make today<br>
+            a little slower.
+        </h2>
+
+        <p>
+            Good coffee tastes better when you have somewhere
+            worth staying.
+        </p>
+
+        <a href="#visit" class="button">
+            Visit Luna Café
+        </a>
+
+    </section>
+
+
+    <!-- FOOTER -->
+    <footer>
+
+        <div class="footer-logo">
+            LUNA CAFÉ
+        </div>
+
+        <p>
+            Coffee • Food • Good Moments
+        </p>
+
+        <br>
+
+        <p>
+            © 2026 Luna Café. All rights reserved.
+        </p>
+
+    </footer>
+
+</body>
+</html>
