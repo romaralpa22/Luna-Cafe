@@ -1,556 +1,155 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Maya Coffee House | Coffee & Good Moments</title>
-    <meta name="description" content="Maya Coffee House — thoughtfully brewed coffee, comforting food, and a warm space to slow down and stay awhile.">
-
-    <style>
-        * {
-            box-sizing: border-box;
-            margin: 0;
-            padding: 0;
-        }
-
-        html {
-            scroll-behavior: smooth;
-        }
-
-        body {
-            font-family: Arial, sans-serif;
-            color: #3b2921;
-            background: #f8f3ec;
-            line-height: 1.6;
-        }
-
-        a {
-            color: inherit;
-            text-decoration: none;
-        }
-
-        nav {
-            position: sticky;
-            top: 0;
-            z-index: 1000;
-            background: #fffaf4;
-            border-bottom: 1px solid #dfd2c3;
-            padding: 18px 6%;
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-        }
-
-        .logo {
-            font-size: 24px;
-            font-weight: bold;
-            letter-spacing: 3px;
-        }
-
-        .nav-links {
-            display: flex;
-            gap: 28px;
-            align-items: center;
-        }
-
-        .nav-links a {
-            font-size: 14px;
-        }
-
-        .nav-button {
-            border: 1px solid #7a513d;
-            padding: 10px 20px;
-            border-radius: 30px;
-        }
-
-        .hero {
-            min-height: 85vh;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            text-align: center;
-            padding: 80px 6%;
-            background:
-                linear-gradient(rgba(76, 48, 36, 0.55), rgba(76, 48, 36, 0.55)),
-                url("https://images.unsplash.com/photo-1495474472287-4d71bcdd2085?auto=format&fit=crop&w=1800&q=80")
-                center/cover;
-            color: white;
-        }
-
-        .hero-content {
-            max-width: 800px;
-        }
-
-        .eyebrow {
-            text-transform: uppercase;
-            letter-spacing: 5px;
-            font-size: 13px;
-            margin-bottom: 25px;
-        }
-
-        .hero h1 {
-            font-family: Georgia, serif;
-            font-size: clamp(55px, 9vw, 110px);
-            font-weight: normal;
-            line-height: 0.95;
-            margin-bottom: 30px;
-        }
-
-        .hero p {
-            font-size: 20px;
-            max-width: 600px;
-            margin: 0 auto 35px;
-        }
-
-        .button {
-            display: inline-block;
-            background: #f1dfbd;
-            color: #4d3327;
-            padding: 15px 32px;
-            border-radius: 40px;
-            font-weight: bold;
-        }
-
-        section {
-            padding: 100px 6%;
-        }
-
-        .section-label {
-            text-transform: uppercase;
-            letter-spacing: 5px;
-            color: #8a603d;
-            font-size: 13px;
-            margin-bottom: 20px;
-        }
-
-        h2 {
-            font-family: Georgia, serif;
-            font-size: clamp(42px, 6vw, 75px);
-            font-weight: normal;
-            line-height: 1.05;
-            margin-bottom: 30px;
-        }
-
-        .intro {
-            max-width: 700px;
-            font-size: 20px;
-            color: #6d5a50;
-        }
-
-        .about {
-            background: #efe0c3;
-        }
-
-        .about-grid {
-            max-width: 1100px;
-            margin: auto;
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 60px;
-            align-items: center;
-        }
-
-        .about-image {
-            min-height: 500px;
-            border-radius: 4px;
-            background:
-                url("https://images.unsplash.com/photo-1501339847302-ac426a4a7cbb?auto=format&fit=crop&w=1200&q=80")
-                center/cover;
-        }
-
-        .menu {
-            max-width: 1100px;
-            margin: auto;
-        }
-
-        .menu-intro {
-            max-width: 650px;
-            margin-bottom: 55px;
-        }
-
-        .menu-grid {
-            display: grid;
-            grid-template-columns: repeat(3, 1fr);
-            gap: 25px;
-        }
-
-        .menu-card {
-            background: #fffaf4;
-            border: 1px solid #e1d6ca;
-            padding: 35px;
-            transition: transform 0.25s ease;
-        }
-
-        .menu-card:hover {
-            transform: translateY(-5px);
-        }
-
-        .menu-card h3 {
-            font-family: Georgia, serif;
-            font-size: 30px;
-            font-weight: normal;
-            margin-bottom: 12px;
-        }
-
-        .menu-card p {
-            color: #6d5a50;
-            margin-bottom: 20px;
-        }
-
-        .price {
-            font-weight: bold;
-            color: #8a603d;
-        }
-
-        .experience {
-            background: #6f4b3b;
-            color: #fff5e5;
-        }
-
-        .experience-inner {
-            max-width: 900px;
-            margin: auto;
-            text-align: center;
-        }
-
-        .experience h2 {
-            color: #fff0cf;
-        }
-
-        .experience p {
-            font-size: 21px;
-            max-width: 700px;
-            margin: auto;
-            color: #f8eee2;
-        }
-
-        .visit {
-            max-width: 1000px;
-            margin: auto;
-        }
-
-        .visit-grid {
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 25px;
-            margin-top: 50px;
-        }
-
-        .visit-card {
-            background: white;
-            padding: 35px;
-            border-left: 4px solid #8a603d;
-        }
-
-        .visit-card h3 {
-            font-family: Georgia, serif;
-            font-size: 28px;
-            font-weight: normal;
-            margin-bottom: 10px;
-        }
-
-        .visit-card p {
-            color: #6d5a50;
-        }
-
-        .cta {
-            background: #efe0c3;
-            text-align: center;
-        }
-
-        .cta p {
-            max-width: 600px;
-            margin: 0 auto 30px;
-            font-size: 20px;
-            color: #6d5a50;
-        }
-
-        footer {
-            background: #2f211b;
-            color: #f6ead7;
-            text-align: center;
-            padding: 55px 6%;
-        }
-
-        footer .footer-logo {
-            font-family: Georgia, serif;
-            font-size: 34px;
-            letter-spacing: 4px;
-            margin-bottom: 15px;
-        }
-
-        footer p {
-            color: #d7c7b7;
-        }
-
-        @media (max-width: 768px) {
-            nav {
-                padding: 16px 5%;
-            }
-
-            .nav-links {
-                gap: 12px;
-            }
-
-            .nav-links a:not(.nav-button) {
-                display: none;
-            }
-
-            .hero {
-                min-height: 80vh;
-                padding: 70px 7%;
-            }
-
-            .hero h1 {
-                font-size: 60px;
-            }
-
-            .hero p {
-                font-size: 17px;
-            }
-
-            section {
-                padding: 75px 7%;
-            }
-
-            .about-grid,
-            .visit-grid,
-            .menu-grid {
-                grid-template-columns: 1fr;
-            }
-
-            .about-image {
-                min-height: 350px;
-                order: -1;
-            }
-
-            h2 {
-                font-size: 48px;
-            }
-
-            .menu-card {
-                padding: 30px;
-            }
-        }
-    </style>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>RAW.co | Events & Souvenirs</title>
+<meta name="description" content="RAW.co creates meaningful events and souvenirs designed to turn special occasions into unforgettable memories.">
+<style>
+*{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth}
+body{font-family:Arial,Helvetica,sans-serif;color:#35251f;background:#f8f4ed;line-height:1.6}
+a{text-decoration:none;color:inherit}
+nav{position:sticky;top:0;z-index:20;background:#fbf8f2;border-bottom:1px solid #dfd5c9;height:78px;display:flex;align-items:center;justify-content:space-between;padding:0 6vw}
+.logo{font-family:Georgia,serif;font-size:28px;letter-spacing:5px;font-weight:500}
+.navlinks{display:flex;gap:28px;align-items:center;font-size:14px}
+.navlinks a:hover{opacity:.65}
+.order{border:1px solid #7a4d39;border-radius:30px;padding:11px 22px}
+.hero{min-height:760px;display:flex;align-items:center;justify-content:center;text-align:center;padding:80px 6vw;background:linear-gradient(rgba(45,27,20,.45),rgba(45,27,20,.55)),url("https://static.wixstatic.com/media/c19c76_cf9b2c654746412abb0d21d10fc406b9~mv2_d_3861_2574_s_4_2.jpg/v1/fill/w_1600,h_1060,al_c,q_85,usm_0.66_1.00_0.01,enc_avif,quality_auto/c19c76_cf9b2c654746412abb0d21d10fc406b9~mv2_d_3861_2574_s_4_2.jpg") center/cover}
+.hero-inner{max-width:900px;color:#fff}
+.eyebrow,.label{font-size:13px;letter-spacing:5px;text-transform:uppercase;margin-bottom:22px}
+.hero h1{font-family:Georgia,serif;font-size:clamp(58px,8vw,112px);font-weight:400;line-height:.98;margin-bottom:28px}
+.hero p{font-size:19px;max-width:680px;margin:0 auto 36px}
+.btn{display:inline-block;background:#f3dfb5;color:#4b3025;border-radius:30px;padding:15px 30px;font-weight:700}
+section{padding:110px 7vw}
+.intro{background:#ead9b0}
+.two-col{max-width:1180px;margin:auto;display:grid;grid-template-columns:1fr 1fr;gap:80px;align-items:center}
+.photo{width:100%;height:520px;object-fit:cover;border-radius:4px}
+h2{font-family:Georgia,serif;font-size:clamp(48px,5vw,76px);font-weight:400;line-height:1.05;margin-bottom:25px}
+.lead{font-size:20px;max-width:620px}
+.services{background:#f8f4ed}
+.services-head{max-width:850px;margin:0 auto 55px;text-align:center}
+.cards{max-width:1180px;margin:auto;display:grid;grid-template-columns:repeat(3,1fr);gap:22px}
+.card{background:#fffdf9;border:1px solid #dfd5c9;padding:38px;min-height:280px}
+.card .num{font-family:Georgia,serif;font-size:25px;color:#8a5b42;margin-bottom:35px}
+.card h3{font-family:Georgia,serif;font-size:32px;font-weight:400;margin-bottom:14px}
+.about{background:#704c3b;color:#f7e9c8;text-align:center}
+.about-inner{max-width:900px;margin:auto}
+.about p{font-size:20px;max-width:780px;margin:0 auto 30px}
+.gallery{background:#f8f4ed}
+.gallery-grid{max-width:1180px;margin:50px auto 0;display:grid;grid-template-columns:1.2fr .8fr;gap:22px}
+.gallery img{width:100%;height:360px;object-fit:cover;border-radius:4px}
+.gallery img:first-child{height:560px;grid-row:span 2}
+.contact{background:#ead9b0}
+.contact-grid{max-width:1180px;margin:45px auto 0;display:grid;grid-template-columns:1fr 1fr;gap:22px}
+.info{background:#fffdf9;padding:35px;border-left:4px solid #8a5b42}
+.info h3{font-family:Georgia,serif;font-size:30px;font-weight:400;margin-bottom:12px}
+.cta{text-align:center;background:#ead9b0;padding-top:90px;padding-bottom:100px}
+.cta h2{max-width:800px;margin:0 auto 25px}
+footer{background:#2c201b;color:#f3e6c7;text-align:center;padding:65px 20px}
+footer .logo{margin-bottom:14px}
+footer p{color:#d7cabe}
+@media(max-width:800px){
+nav{height:70px;padding:0 20px}.logo{font-size:21px;letter-spacing:3px}.navlinks{gap:12px;font-size:11px}.navlinks a:nth-child(-n+3){display:none}.order{padding:8px 15px}
+.hero{min-height:650px;padding:70px 25px}.hero h1{font-size:58px}.hero p{font-size:16px}
+section{padding:75px 25px}.two-col,.cards,.contact-grid,.gallery-grid{grid-template-columns:1fr;gap:25px}.photo{height:380px}.gallery img,.gallery img:first-child{height:350px;grid-row:auto}
+h2{font-size:48px}.lead{font-size:18px}
+}
+</style>
 </head>
-
 <body>
 
-    <nav>
-        <a href="#home" class="logo">MAYA COFFEE HOUSE</a>
+<nav>
+  <a href="#home" class="logo">RAW.co</a>
+  <div class="navlinks">
+    <a href="#about">About</a>
+    <a href="#services">Services</a>
+    <a href="#gallery">Gallery</a>
+    <a href="#contact">Contact</a>
+    <a href="#booking" class="order">Book a Consultation</a>
+  </div>
+</nav>
 
-        <div class="nav-links">
-            <a href="#about">About</a>
-            <a href="#menu">Menu</a>
-            <a href="#experience">Experience</a>
-            <a href="#visit">Visit</a>
-            <a href="#visit" class="nav-button">Order</a>
-        </div>
-    </nav>
+<header class="hero" id="home">
+  <div class="hero-inner">
+    <div class="eyebrow">Events • Souvenirs • Memories</div>
+    <h1>Create memories with us.</h1>
+    <p>Turn your dream event into a reality with thoughtful details, meaningful experiences, and souvenirs worth remembering.</p>
+    <a href="#services" class="btn">Explore Our Services</a>
+  </div>
+</header>
 
-    <header class="hero" id="home">
-        <div class="hero-content">
-            <div class="eyebrow">Coffee • Food • Good Moments</div>
+<section class="intro" id="about">
+  <div class="two-col">
+    <img class="photo" src="https://static.wixstatic.com/media/c19c76_69eada92e86a435a80761049f0211846~mv2_d_4896_3264_s_4_2.jpg/v1/fill/w_1000,h_667,al_c,q_80,usm_0.66_1.00_0.01,enc_avif,quality_auto/c19c76_69eada92e86a435a80761049f0211846~mv2_d_4896_3264_s_4_2.jpg" alt="RAW.co event">
+    <div>
+      <div class="label">RAW.co</div>
+      <h2>Turn your dream into a reality.</h2>
+      <p class="lead">RAW.co is an Events and Souvenirs business based in Rosario, Cavite, created to help make celebrations more memorable through thoughtful event experiences and keepsakes.</p>
+    </div>
+  </div>
+</section>
 
-            <h1>
-                Your everyday<br>
-                coffee place.
-            </h1>
+<section class="services" id="services">
+  <div class="services-head">
+    <div class="label">Our Services</div>
+    <h2>Made for moments that matter.</h2>
+    <p class="lead" style="margin:auto">Whether you're celebrating a milestone or bringing people together, RAW.co helps you create an occasion worth remembering.</p>
+  </div>
+  <div class="cards">
+    <article class="card"><div class="num">01</div><h3>Birthdays</h3><p>Celebrate another year with details and experiences designed around your special day.</p></article>
+    <article class="card"><div class="num">02</div><h3>Private Parties</h3><p>Create a gathering that feels personal, meaningful, and uniquely yours.</p></article>
+    <article class="card"><div class="num">03</div><h3>Corporate Events</h3><p>Bring your team or guests together with a thoughtfully planned event experience.</p></article>
+  </div>
+</section>
 
-            <p>
-                Thoughtfully brewed coffee, comforting food,
-                and a warm space to slow down and stay awhile.
-            </p>
+<section class="about">
+  <div class="about-inner">
+    <div class="label">The RAW.co Experience</div>
+    <h2>Unforgettable memories, thoughtfully made.</h2>
+    <p>From the celebration itself to the little details your guests take home, RAW.co is about creating moments that stay with you long after the event ends.</p>
+    <a href="#booking" class="btn">Book a Consultation</a>
+  </div>
+</section>
 
-            <a href="#menu" class="button">Explore Our Menu</a>
-        </div>
-    </header>
+<section class="gallery" id="gallery">
+  <div class="services-head">
+    <div class="label">Gallery</div>
+    <h2>Unforgettable memories.</h2>
+  </div>
+  <div class="gallery-grid">
+    <img src="https://static.wixstatic.com/media/c19c76_be4ffccdadfe4e0b987504c62fb53fe5~mv2_d_3625_2366_s_2.jpg/v1/fill/w_1000,h_656,al_c,q_85,usm_0.66_1.00_0.01,enc_avif,quality_auto/c19c76_be4ffccdadfe4e0b987504c62fb53fe5~mv2_d_3625_2366_s_2.jpg" alt="RAW.co gallery">
+    <img src="https://static.wixstatic.com/media/c19c76_69eada92e86a435a80761049f0211846~mv2_d_4896_3264_s_4_2.jpg/v1/fill/w_900,h_600,al_c,q_80,usm_0.66_1.00_0.01,enc_avif,quality_auto/c19c76_69eada92e86a435a80761049f0211846~mv2_d_4896_3264_s_4_2.jpg" alt="RAW.co celebration">
+    <img src="https://static.wixstatic.com/media/c19c76_cf9b2c654746412abb0d21d10fc406b9~mv2_d_3861_2574_s_4_2.jpg/v1/fill/w_900,h_600,al_c,q_85,usm_0.66_1.00_0.01,enc_avif,quality_auto/c19c76_cf9b2c654746412abb0d21d10fc406b9~mv2_d_3861_2574_s_4_2.jpg" alt="RAW.co event">
+  </div>
+</section>
 
-    <section class="about" id="about">
-        <div class="about-grid">
+<section class="contact" id="contact">
+  <div class="services-head">
+    <div class="label">Find Us</div>
+    <h2>Let's make something memorable.</h2>
+  </div>
+  <div class="contact-grid">
+    <div class="info"><h3>Location</h3><p>4106 Rosario, Cavite<br>Philippines</p></div>
+    <div class="info"><h3>Phone</h3><p><a href="tel:+639358301033">0935-830-1033</a></p></div>
+    <div class="info"><h3>Email</h3><p><a href="mailto:raw.co@gmail.com">raw.co@gmail.com</a></p></div>
+    <div class="info"><h3>Telephone</h3><p>875-1595</p></div>
+  </div>
+</section>
 
-            <div class="about-image"></div>
+<section class="cta" id="booking">
+  <div class="label">Start Your Story</div>
+  <h2>Ready to create memories with us?</h2>
+  <p class="lead" style="margin:0 auto 30px">Let's talk about your next celebration, gathering, or event.</p>
+  <a href="mailto:raw.co@gmail.com?subject=RAW.co%20Consultation%20Request" class="btn">Book a Consultation</a>
+</section>
 
-            <div>
-                <div class="section-label">About Maya</div>
-
-                <h2>
-                    Coffee made<br>
-                    for connection.
-                </h2>
-
-                <p class="intro">
-                    Maya Coffee House is a neighborhood café created
-                    for slow mornings, meaningful conversations,
-                    creative afternoons, and little moments worth
-                    remembering.
-                </p>
-
-                <br>
-
-                <p class="intro">
-                    Whether you're meeting a friend, getting some
-                    work done, or simply enjoying a quiet cup of
-                    coffee, there's always a place for you here.
-                </p>
-            </div>
-
-        </div>
-    </section>
-
-    <section id="menu">
-        <div class="menu">
-
-            <div class="menu-intro">
-                <div class="section-label">Our Favorites</div>
-
-                <h2>
-                    Something for<br>
-                    every mood.
-                </h2>
-
-                <p class="intro">
-                    From your first coffee of the morning to an
-                    afternoon treat, discover some of our favorites.
-                </p>
-            </div>
-
-            <div class="menu-grid">
-
-                <div class="menu-card">
-                    <h3>Latte</h3>
-                    <p>Smooth espresso with silky steamed milk.</p>
-                    <div class="price">₱160</div>
-                </div>
-
-                <div class="menu-card">
-                    <h3>Spanish Latte</h3>
-                    <p>Rich espresso balanced with sweet, creamy milk.</p>
-                    <div class="price">₱180</div>
-                </div>
-
-                <div class="menu-card">
-                    <h3>Cold Brew</h3>
-                    <p>Slow-steeped coffee served smooth and refreshing.</p>
-                    <div class="price">₱170</div>
-                </div>
-
-                <div class="menu-card">
-                    <h3>Croissant</h3>
-                    <p>Buttery, flaky, and freshly baked.</p>
-                    <div class="price">₱120</div>
-                </div>
-
-                <div class="menu-card">
-                    <h3>Basque Cheesecake</h3>
-                    <p>Creamy cheesecake with a beautifully caramelized top.</p>
-                    <div class="price">₱190</div>
-                </div>
-
-                <div class="menu-card">
-                    <h3>Chocolate Cake</h3>
-                    <p>Rich chocolate cake for your sweet moments.</p>
-                    <div class="price">₱180</div>
-                </div>
-
-            </div>
-        </div>
-    </section>
-
-    <section class="experience" id="experience">
-        <div class="experience-inner">
-
-            <div class="section-label">The Maya Experience</div>
-
-            <h2>
-                Stay for the coffee.<br>
-                Come back for the feeling.
-            </h2>
-
-            <p>
-                We believe a café should be more than a place
-                to grab a drink. It should be a place where
-                conversations happen, ideas begin, friendships
-                grow, and ordinary days become memorable.
-            </p>
-
-        </div>
-    </section>
-
-    <section id="visit">
-        <div class="visit">
-
-            <div class="section-label">Find Us</div>
-
-            <h2>Come say hello.</h2>
-
-            <p class="intro">
-                We'd love to have you at Maya Coffee House.
-                Drop by, grab your favorite drink, and make
-                yourself comfortable.
-            </p>
-
-            <div class="visit-grid">
-
-                <div class="visit-card">
-                    <h3>Location</h3>
-                    <p>
-                        123 Moonlight Street<br>
-                        Makati City, Philippines
-                    </p>
-                </div>
-
-                <div class="visit-card">
-                    <h3>Opening Hours</h3>
-                    <p>
-                        Monday – Friday: 7:00 AM – 9:00 PM<br>
-                        Saturday – Sunday: 8:00 AM – 10:00 PM
-                    </p>
-                </div>
-
-                <div class="visit-card">
-                    <h3>Contact</h3>
-                    <p>
-                        hello@mayacoffeehouse.ph<br>
-                        +63 912 345 6789
-                    </p>
-                </div>
-
-                <div class="visit-card">
-                    <h3>Follow Us</h3>
-                    <p>
-                        Instagram: @mayacoffeehouse.ph<br>
-                        Facebook: Maya Coffee House
-                    </p>
-                </div>
-
-            </div>
-        </div>
-    </section>
-
-    <section class="cta">
-        <div class="section-label">Your Table Awaits</div>
-
-        <h2>
-            Make today<br>
-            a little slower.
-        </h2>
-
-        <p>
-            Good coffee tastes better when you have somewhere
-            worth staying.
-        </p>
-
-        <a href="#visit" class="button">Visit Maya Coffee House</a>
-    </section>
-
-    <footer>
-        <div class="footer-logo">MAYA COFFEE HOUSE</div>
-        <p>Coffee • Food • Good Moments</p>
-        <br>
-        <p>© 2026 Maya Coffee House. All rights reserved.</p>
-    </footer>
+<footer>
+  <div class="logo">RAW.co</div>
+  <p>Events and Souvenirs</p>
+  <p style="margin-top:18px">Create memories with us.</p>
+  <p style="margin-top:25px">© 2026 RAW.co. All rights reserved.</p>
+</footer>
 
 </body>
 </html>
